@@ -1,0 +1,30 @@
+{% extends "simple_layout.html" %}
+
+{% block title %} {{title}}  {% endblock title %}
+{% block header %} {{header}}  {% endblock header %}
+
+{% block content %} 
+   <!-- CATEGORY -->
+      
+   <p>
+      <h1>{{data.name}}</h1>      
+      <!-- information about the searched topic -->
+      <h3>damage type:</h3>
+      <h5>{{data.damage_class.name}}</h5>
+      <h3>accuracy:</h3>
+      <h5>{{data.accuracy}}%</h5>
+      
+      <h3>learned by:</h3>
+      <h5>{% for info in data.learned_by_pokemon %}
+            {{info.name}} &nbsp&nbsp
+         {% endfor %}</h5>
+
+      <h3>game descriptions:</h3>
+      <h5>{% for info in data.flavor_text_entries %}
+               {{info.version_group.name}} ({{info.language.name}})&nbsp&nbsp{{info.flavor_text}}  <br>
+            {% endfor %}</h5>
+
+   
+   </p>
+
+{% endblock content %}

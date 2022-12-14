@@ -1,0 +1,38 @@
+{% extends "simple_layout.html" %}
+{% block title %} {{title}}  {% endblock title %}
+{% block header %} {{header}}  {% endblock header %}
+
+{% block content %} 
+<form action="" method="post">
+   <!-- CATEGORY --><center>
+      <div>
+         {{form.category.label}}
+         {{form.category}}
+         <span class="error">{{ form.category.errors | join("|") }}</span>
+      </div>
+   <div>
+      <span>
+         {{form.name.label}}
+      </span>
+      <span>
+         {{form.name}}
+      </span>
+   </div>
+   
+   <!-- SUBMIT -->
+   <div>
+      {{form.submit()}}
+   </div>
+   <br>
+   <br>
+   {% if request.cookies.get('searched') %}
+         The last search was: {{request.cookies.get('searched')}}
+      {% else %}
+         Last search lost
+      {% endif %}
+</center>
+</form>
+<br />
+   
+
+{% endblock content %}

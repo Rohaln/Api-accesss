@@ -1,0 +1,30 @@
+{% extends "simple_layout.html" %}
+
+{% block title %} {{title}}  {% endblock title %}
+{% block header %} {{header}}  {% endblock header %}
+
+{% block content %} 
+   <!-- CATEGORY -->
+      
+   <p>
+      <h1>{{data.name}}</h1>      
+      <!-- information about the searched topic -->
+      <h3>{{data.name}} moves: </h3>
+      <h5>{% for info in data.moves %}
+       {{info.name}} &nbsp&nbsp
+      {% endfor %}</h5>
+
+      <h3>pokemon who are {{data.name}}: </h3>
+      <h5>{% for info in data.pokemon %}
+       {{info.pokemon.name}} &nbsp&nbsp
+      {% endfor %}</h5>
+
+      <h3>available in:</h3>
+      <h5>{% for info in data.game_indices %}
+       {{info.generation.name}} &nbsp&nbsp
+      {% endfor %}</h5>
+
+      
+   </p>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Menu</title>
+</head>
+<body style="background-color:#00704A">
+   <a href="/Home">Home Page</a>&nbsp&nbsp<a href="/Favorite">Favorite Place</a>&nbsp&nbsp<a href="/Menu">Menu</a>
+   <br />
+
+   <h1>Menu</h1>
+   {% for drink in coffeess.drinks %}
+   <h4>Name: {{drink.drink_name}} </h4>
+   <h4>Description: {{drink.drink_desc}} </h4>
+   <h4>Nutrition information</h4>
+   <h5>Caffeine: {{drink.drink_caff}}mg -- Protein: {{drink.drink_protein}}g </h5>
+   <h5>Fat: {{drink.drink_fat}}g -- Calories: {{drink.drink_cal}} </h5>
+   <br />
+   {% endfor %}
+
+   <h1>Sizes</h1>
+   {% for drink in coffeess.sizes %}
+   <h4>{{drink.size_name}} {{drink.size_oz}}oz</h4>
+   {% endfor %}
+
+</body>
+</html>

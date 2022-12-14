@@ -1,0 +1,36 @@
+{% extends "simple_layout.html" %}
+
+{% block title %} {{title}}  {% endblock title %}
+{% block header %} {{header}}  {% endblock header %}
+
+{% block content %} 
+   <!-- CATEGORY -->
+      
+   <p>
+      <h1>{{data.name}}</h1> 
+      <!-- getting picture from github -->
+      {% set finalURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/"+data.name+".png"|string%}
+      <img src="{{finalURL}}" alt="{{data.name}}"> 
+
+
+      <!-- information about the searched topic -->
+      <h3>{{data.name}}'s attributes: </h3>
+      <h5>{% for info in data.attributes %}
+       {{info['name']or 'None'}} &nbsp&nbsp
+      {% endfor %}</h5>
+      <h3>cost:</h3>
+      <h5>{{data.cost}}</h5>
+
+      <h3>available in:</h3>
+      <h5>{% for info in data.game_indices %}
+       {{info.generation.name}} &nbsp&nbsp
+      {% endfor %}</h5>
+
+      <h3>game descriptions:</h3>
+      <h5>{% for info in data.flavor_text_entries %}
+               {{info.version_group.name}} ({{info.language.name}})&nbsp&nbsp{{info.text}}  <br>
+            {% endfor %}</h5>
+      
+   </p>
+
+{% endblock content %}

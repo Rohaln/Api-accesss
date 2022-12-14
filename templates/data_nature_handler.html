@@ -1,0 +1,23 @@
+{% extends "simple_layout.html" %}
+
+{% block title %} {{title}}  {% endblock title %}
+{% block header %} {{header}}  {% endblock header %}
+
+{% block content %} 
+   <!-- CATEGORY -->
+      
+   <p>
+      <h1>{{data.name}}</h1>      
+      <!-- information about the searched topic -->
+      <h3>stat increased:</h3>
+      <h5>{{data.increased_stat['name'] or 'None'}}</h5>
+      <h3>stat decreased:</h3>
+      <h5>{{data.decreased_stat['name'] or 'None'}}</h5>
+      <h3>likes flavor:</h3>
+      <h5>{{data.likes_flavor['name'] or 'None'}}</h5>
+      <h3>stat decreased:</h3>
+      <h5>{{data.hates_flavor['name'] or 'None'}}</h5>
+      
+   </p>
+
+{% endblock content %}

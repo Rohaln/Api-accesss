@@ -1,0 +1,39 @@
+{% extends "simple_layout.html" %}
+
+{% block title %} {{title}}  {% endblock title %}
+{% block header %} {{header}}  {% endblock header %}
+
+{% block content %} 
+   <!-- CATEGORY -->
+      
+   <p>
+      <h1>{{data.name}}</h1>
+      <!--  displayes a picture of the search -->
+
+      <!--  if i need to get sprites from git gub
+      {% set mon_id = data.id|string%}
+      {% set baseURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"|string%}
+      {% set finalURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+mon_id+".png"|string%}
+      <img src="{{finalURL}}" alt="{{data.name}}"> 
+   -->
+      <img src="{{data.sprites.front_default}}" alt="{{data.name}}">
+      <br>
+      <!-- information about the searched topic -->
+      <h3>available in:</h3>
+      <h5>{% for info in data.game_indices %}
+       {{info.version.name}} &nbsp&nbsp
+      {% endfor %}</h5>
+
+      <h3>{{data.name}}'s abilities: </h3>
+      <h5>{% for info in data.abilities %}
+       {{info.ability.name}} &nbsp&nbsp
+      {% endfor %}</h5>
+
+      <h3>{{data.name}}'s moves: </h3>
+      <h5>{% for info in data.moves %}
+       {{info.move.name}} &nbsp&nbsp
+      {% endfor %}</h5>
+
+   </p>
+
+{% endblock content %}D

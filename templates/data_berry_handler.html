@@ -1,0 +1,38 @@
+{% extends "simple_layout.html" %}
+
+{% block title %} {{title}}  {% endblock title %}
+{% block header %} {{header}}  {% endblock header %}
+
+{% block content %} 
+   <!-- CATEGORY -->
+      
+   <p>
+      <h1>{{data.name}}</h1>      
+      <!-- information about the searched topic -->
+
+      {% set finalURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/berries/"+data.item.name+".png"|string%}
+      <img src="{{finalURL}}" alt="{{data.name}}"> 
+
+      <h3>{{data.name}} flavors:</h3>
+      <h5>{% for info in data.flavors %}
+       {{info.flavor.name}} &nbsp&nbsp
+      {% endfor %}</h5>
+
+      <h3>natural gift data:</h3>
+      <h5>power: {{data['natural_gift_power'] or 'None'}} type: {{data.natural_gift_type.name}}</h5>
+
+      <h3>firmness:</h3>
+      <h5>{{data.firmness['name'] or 'None'}}</h5>
+      <h3>growth time:</h3>
+      <h5>{{data['growth_time'] or 'None'}}</h5>
+      <h3>max harvest amount:</h3>
+      <h5>{{data['max_harvest'] or 'None'}}</h5>
+      <h3>soil dryness:</h3>
+      <h5>{{data['soil_dryness'] or 'None'}}</h5>
+
+
+
+
+   </p>
+
+{% endblock content %}
